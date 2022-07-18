@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PostDataService } from './services/post-data.service';
 import { postModel } from './post/post.model';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { postModel } from './post/post.model';
 export class AppComponent {
   title = 'angular-reddit';
   posts: postModel[] = [];
+  newPost: postModel = {title:"",link:"",id:"",upvotes:1};
   createPost = new FormGroup({
     title: new FormControl(''),
     link: new FormControl('')
@@ -20,7 +22,11 @@ export class AppComponent {
     this.getPosts();
   }
   addPost(){
-    console.log(this.createPost.value);
+    this.newPost.id = uuid.v4();
+    this.newPost.title = this.createPost.value.title;
+    this.newPost.link = this.createPost.value.link;
+    this.postDataService.addPost(this.newPost).subscribe((result) => {this.posts = [...this.posts,result]});
+    this.createPost.reset();
   }
 
   getPosts(){
