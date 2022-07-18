@@ -1,10 +1,14 @@
 <div class="body">
   <nav>
     <img src="../assets/reddit.svg" alt="reddit-logo" class="logo" />
-    <div>
-    <button mat-stroked-button color="primary" class="loginbtn">Log in</button>
-    <button mat-raised-button color="primary" class="loginbtn">Sign Up</button>
-  </div>
+    <div class="authBtn">
+      <button mat-stroked-button color="primary" class="loginbtn">
+        Log in
+      </button>
+      <button mat-raised-button color="primary" class="loginbtn">
+        Sign Up
+      </button>
+    </div>
   </nav>
   <br />
   <div class="formContainer">
@@ -25,7 +29,7 @@
     </form>
   </div>
   <br />
-  <div class = "posts" *ngFor = "let post of posts">
-    <app-post [post] = "post"></app-post>
+  <div class="posts" *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
   </div>
 </div>
