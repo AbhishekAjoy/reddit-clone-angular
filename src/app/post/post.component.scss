@@ -1,22 +1,28 @@
-.postContainer{
-    display: flex;
-    background-color: white;
-    width: 70%;
-    border-radius: 15px;
-    margin-left: 15%;
-    margin-bottom: 1%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+.postContainer {
+  display: flex;
+  background-color: white;
+  width: 70%;
+  border-radius: 15px;
+  margin-left: 15%;
+  margin-bottom: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
-.upvotes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1% 1% 1% 1%;
+.upvotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 1% 1% 1%;
 }
-.postContent{
+.postContent {
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+.deletePost{
     display: flex;
-    flex-direction: column;
-    margin-top: 2%;
-    margin-left: 2%;
+    align-items: flex-start;
+    margin-top: -2%;
 }

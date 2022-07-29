@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+ 
 import { postModel } from './post.model';
 
 
@@ -15,6 +16,8 @@ export class PostComponent implements OnInit {
     "link": "",
     "upvotes": 0
   };
+
+  @Output() delPostEmitter:EventEmitter<string> = new EventEmitter<string>();
   constructor() { 
     
   }
@@ -30,5 +33,9 @@ export class PostComponent implements OnInit {
 
   downvotePost(){
     console.log('downvote');
+  }
+
+  deletePost(postId: string){
+    this.delPostEmitter.emit(postId);
   }
 }

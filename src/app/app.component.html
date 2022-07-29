@@ -30,6 +30,6 @@
   </div>
   <br />
   <div class="posts" *ngFor="let post of posts">
-    <app-post [post]="post"></app-post>
+    <app-post [post]="post" (delPostEmitter)="deletePost($event)"></app-post>
   </div>
 </div>

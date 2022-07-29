@@ -14,12 +14,16 @@ export class PostDataService {
   private apiUrl = 'http://localhost:5000/posts';
   constructor(private http: HttpClient) { }
 
-  addPost(task: postModel):Observable<postModel>{
-    return this.http.post<postModel>(this.apiUrl,task);
+  addPost(post: postModel):Observable<postModel>{
+    return this.http.post<postModel>(this.apiUrl,post);
   }
 
   getPosts(): Observable<postModel[]>{    
     return this.http.get<postModel[]>(this.apiUrl);
+  }
+  deletePost(postId: string): Observable<postModel>{
+    const delUrl = `${this.apiUrl}/${postId}`;
+    return this.http.delete<postModel>(delUrl);
   }
 /*
   removeTask(id:string): Observable<taskModel>{
