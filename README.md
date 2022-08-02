@@ -1,5 +1,7 @@
 # AngularReddit
 
+Initial Plan was an exact clone of reddit, but currently modifying this project to be a blog with basic CRUD operations having upvote and downvote feature on posts(similar to reddit).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
 ## Development server
