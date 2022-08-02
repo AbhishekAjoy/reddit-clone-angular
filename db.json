@@ -1,16 +1,16 @@
 {
   "posts": [
     {
-      "title": "Google",
-      "link": "www.google.com",
-      "id": "b40a367e-290b-4e19-ace5-9128185ed2ea",
-      "upvotes": 1
+      "title": "My First Post",
+      "link": "Hey guys, this is my first post on this project. Hope you like it.",
+      "id": "9b454596-de27-4274-8e57-ebdc3f51f0b0",
+      "upvotes": 4
     },
     {
-      "title": "Github",
-      "link": "https://github.com/AbhishekAjoy/reddit-clone-angular",
-      "id": "4cacbf8a-cf98-4464-b400-a5ed26d55abf",
-      "upvotes": 1
+      "title": "The purpose of this project",
+      "link": "This is a blog like website which follows some features and styles from reddit.",
+      "id": "9a1468bc-d08a-4a42-973e-c0431f89b265",
+      "upvotes": 2
     }
   ]
 }

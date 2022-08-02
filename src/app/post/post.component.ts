@@ -18,6 +18,9 @@ export class PostComponent implements OnInit {
   };
 
   @Output() delPostEmitter:EventEmitter<string> = new EventEmitter<string>();
+  @Output() upvoteEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() downvoteEmitter: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() { 
     
   }
@@ -26,13 +29,12 @@ export class PostComponent implements OnInit {
   }
 
 
-  upvotePost(){
-    console.log('upvote');
-
+  upvotePost(id: string){
+    this.upvoteEmitter.emit(id);
   }
 
-  downvotePost(){
-    console.log('downvote');
+  downvotePost(id: string){
+    this.downvoteEmitter.emit(id);
   }
 
   deletePost(postId: string){

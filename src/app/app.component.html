@@ -21,7 +21,7 @@
       </mat-form-field>
       <br />
       <mat-form-field appearance="outline">
-        <mat-label>Link</mat-label>
+        <mat-label>Description</mat-label>
         <input matInput placeholder="Link" type="url" formControlName="link" />
       </mat-form-field>
       <br />
@@ -30,6 +30,6 @@
   </div>
   <br />
   <div class="posts" *ngFor="let post of posts">
-    <app-post [post]="post" (delPostEmitter)="deletePost($event)"></app-post>
+    <app-post [post]="post" (delPostEmitter)="deletePost($event)" (downvoteEmitter) = "downvotePost($event)" (upvoteEmitter) = "upvotePost($event)"></app-post>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="postContainer">
   <div class="upvotes">
-    <button mat-icon-button color="warn" class="upvote" (click)="upvotePost()">
+    <button mat-icon-button color="warn" class="upvote" (click)="upvotePost(this.post.id)">
       <mat-icon>arrow_upward</mat-icon>
     </button>
     {{ this.post.upvotes }}
@@ -8,14 +8,14 @@
       mat-icon-button
       color="primary"
       class="downvote"
-      (click)="downvotePost()"
+      (click)="downvotePost(this.post.id)"
     >
       <mat-icon>arrow_downward</mat-icon>
     </button>
   </div>
   <div class="postContent">
     <h3>{{ this.post.title }}</h3>
-    <a [href]="this.post.link">{{ this.post.link }}</a>
+    <p>{{ this.post.link }}</p>
   </div>
   <div class="deletePost">
     <button mat-icon-button color="warn" (click)="deletePost(this.post.id)">

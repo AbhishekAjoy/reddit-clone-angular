@@ -11,6 +11,7 @@ import * as uuid from 'uuid';
 })
 export class AppComponent {
   title = 'angular-reddit';
+  votes: number | undefined = 0;
   posts: postModel[] = [];
   newPost: postModel = { title: '', link: '', id: '', upvotes: 1 };
   createPost = new FormGroup({
@@ -31,6 +32,32 @@ export class AppComponent {
     this.createPost.reset();
   }
 
+  getVotes(id: string) {
+    this.votes = this.posts.find((o) => o.id === id)?.upvotes;
+  }
+  upvotePost(id: string) {
+    this.getVotes(id);
+    this.postDataService.upvotePost(id, this.votes).subscribe((result) => {
+      var index = this.posts
+        .map(function (e) {
+          return e.id;
+        })
+        .indexOf(id);
+      this.posts[index].upvotes = result.upvotes;
+    });
+  }
+
+  downvotePost(id: string) {
+    this.getVotes(id);
+    this.postDataService.downvotePost(id, this.votes).subscribe((result) => {
+      var index = this.posts
+        .map(function (e) {
+          return e.id;
+        })
+        .indexOf(id);
+      this.posts[index].upvotes = result.upvotes;
+    });
+  }
   getPosts() {
     this.postDataService.getPosts().subscribe((result) => {
       this.posts = result;
@@ -38,7 +65,7 @@ export class AppComponent {
   }
 
   deletePost(postId: string) {
-    this.postDataService.deletePost(postId).subscribe((result) => {  
+    this.postDataService.deletePost(postId).subscribe((result) => {
       this.posts = this.posts.filter(function (e) {
         return e.id !== postId;
       });
